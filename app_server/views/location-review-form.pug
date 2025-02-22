@@ -1,0 +1,55 @@
+//- extends layout
+
+//- block content
+//-     h1 Add a Review
+
+//-     form(action='/location/review', method='post')
+//-         div
+//-             label(for='name') Your Name:
+//-             input(type='text', id='name', name='name', required=true)
+
+//-         div
+//-             label(for='rating') Rating:
+//-             select(id='rating', name='rating', required=true)
+//-                 option(value='') Select a rating
+//-                 option(value='1') 1 - Poor
+//-                 option(value='2') 2 - Fair
+//-                 option(value='3') 3 - Good
+//-                 option(value='4') 4 - Very Good
+//-                 option(value='5') 5 - Excellent
+
+//-         div
+//-             label(for='review') Review:
+//-             textarea(id='review', name='review', rows='5', required=true)
+
+//-         div
+//-             button(type='submit') Submit Review
+extends layout
+
+block content
+  .row.banner
+    .col-12
+      h1= pageHeader.title
+
+  .row
+    .col-12.col-md-8
+      form(action="/location", method="get", role="form")
+        .form-group.row
+          label.col-10.col-sm-2.col-form-label(for="name") Name
+          .col-12.col-sm-10
+            input#name.form-control(name="name")
+        .form-group.row
+          label.col-10.col-sm-2.col-form-label(for="rating") Rating
+          .col-12.col-sm-2
+            select#rating.form-control.input-sm(name="rating")
+              option 5
+              option 4
+              option 3
+              option 2
+              option 1
+        .form-group.row
+          label.col-10.col-sm-2.col-form-label(for="review") Review
+          .col-12.col-sm-10
+            textarea#review.form-control(name="review", rows="5")
+        button.btn.btn-primary.float-right Add my review
+    .col-12.col-md-4
